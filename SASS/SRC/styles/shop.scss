@@ -1,0 +1,292 @@
+@use "index.scss" as *;
+
+// CODE
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $spartan;
+}
+
+h1 {
+  font-size: $font-size-xxl;
+}
+
+h2 {
+  font-size: $font-size-huge;
+}
+
+h3 {
+  font-size: $font-size-large;
+}
+
+h4 {
+  font-size: $font-size-main;
+}
+
+h5 {
+  font-size: $font-size-xl;
+}
+
+a {
+  text-decoration: none;
+  color: $black;
+  font-size: $font-size-main;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+}
+
+.img-fit {
+  width: fit-content;
+}
+
+header {
+  background-image: url(/img/waranont-joe-EZwBNdnIlpo-unsplash.jpg);
+  height: 100vh;
+  position: relative;
+  background-position: bottom;
+  background-size: cover;
+}
+
+.navigation {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: $xs-padding gap(5);
+  background-color: $primary;
+  z-index: 9999;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.6);
+  position: fixed;
+  left: 0;
+  top: 0;
+  img {
+    width: 150px;
+  }
+}
+
+.nav-menu {
+  ul {
+    display: flex;
+    gap: gap(3);
+  }
+  li a {
+    font-size: $font-size-large;
+    font-weight: 500;
+    position: relative;
+
+    &:hover {
+      color: lighten($secondary, 5%);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: -10%;
+      bottom: -3px;
+      width: 120%;
+      background-color: $secondary;
+      height: 3px;
+      border-radius: 1px;
+      transition: 0.4s;
+      scale: 0;
+    }
+
+    &:hover::after {
+      scale: 1;
+    }
+  }
+  i {
+    font-size: $font-size-large;
+  }
+}
+
+.hero-section {
+  position: absolute;
+  top: 50vh;
+  left: 100px;
+}
+
+.shop-btn {
+  @include btn($secondary, transparent);
+  font-size: $font-size-huge;
+  font-weight: 600;
+  margin: gap(3);
+  background-image: url(/img/button.png);
+  background-position: center;
+  background-size: cover;
+  padding: 14px 65px;
+}
+
+#products1 {
+  width: 85%;
+  margin: auto;
+  h3 {
+    font-weight: 400;
+    margin-top: $large-margin;
+    font-size: $font-size-huge * 0.9;
+    text-align: center;
+  }
+  h1 {
+    text-align: center;
+  }
+  .pro-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: $base-margin 0 $section-margin 0;
+  }
+  .pro {
+    @include card(1px solid $gray, 20px 20px 30px rgba(0, 0, 0, 0.02));
+    width: 23%;
+    min-width: 250px;
+    cursor: pointer;
+    transition: 0.2s ease;
+    padding: $large-padding;
+    border-radius: 10px;
+    &:hover {
+      box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.1);
+    }
+    img {
+      border-radius: 20px;
+      margin-bottom: $base-margin;
+    }
+  }
+}
+
+.des {
+  position: relative;
+  span {
+    font-size: $font-size-large;
+  }
+  h4 {
+    margin: $small-margin 0;
+    font-size: $font-size-large;
+  }
+  .shopping-card {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    transition: 0.3s;
+    &:hover {
+      background-color: lighten(gray, 60%);
+    }
+  }
+  i {
+    font-size: $font-size-large;
+  }
+}
+
+#newsletter {
+  width: 100%;
+  background: linear-gradient(45deg, darkblue, rgb(8, 15, 78));
+  padding: gap(3) 7.5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+  margin-bottom: $section-margin;
+  .news-wrapper {
+    flex-grow: 1;
+  }
+  h2 {
+    color: $white;
+    margin-bottom: $base-margin;
+  }
+  .news-email {
+    flex-grow: 1;
+    margin-left: gap(4);
+  }
+  form {
+    display: flex;
+  }
+  input {
+    width: 80%;
+    font-size: $font-size-large;
+    padding: $base-padding;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+    border: none;
+  }
+  button {
+    @include btn($white, $secondary);
+    font-size: $font-size-large;
+    margin: 0;
+    border: none;
+    width: 20%;
+    border-radius: 0 4px 4px 0;
+    &:hover {
+      background-color: mix(white, $secondary, 20%);
+    }
+  }
+}
+
+.footer-container {
+  width: 85%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto $section-margin auto;
+  p {
+    color: $gray;
+    font-size: $font-size-big;
+  }
+  i {
+    font-size: $font-size-big;
+    color: $gray;
+  }
+  .footer-contact {
+    width: fit-content;
+    img {
+      width: 200px;
+    }
+
+    .social-media {
+      display: flex;
+      gap: $base-margin;
+    }
+  }
+  .install-app {
+    display: flex;
+    margin: $large-margin 0;
+    gap: gap(1);
+    img {
+      border: 1px solid $secondary;
+      border-radius: 5px;
+    }
+  }
+}
+
+.end {
+  text-align: center;
+}
+
+#pagination {
+  text-align: center;
+  margin-bottom: $section-margin;
+  a {
+    color: $white;
+    background-color: $secondary;
+    font-size: $font-size-big;
+    padding: $base-padding $large-padding;
+    border-radius: 5px;
+    font-weight: 600;
+  }
+  i {
+    font-size: $font-size-big;
+    font-weight: 600;
+  }
+}

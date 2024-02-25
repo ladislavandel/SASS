@@ -1,0 +1,29 @@
+@use "colors" as *;
+@use "variables" as *;
+@use "breakpoints" as *;
+@use "functions" as *;
+
+@mixin btn($color, $bg-color) {
+  text-decoration: none;
+  cursor: pointer;
+  border: 0;
+  margin: $base-margin;
+  padding: $base-padding;
+  color: $color;
+  background-color: $bg-color;
+}
+
+@mixin card($border, $shadow) {
+  border: $border;
+  box-shadow: $shadow;
+  margin: $base-margin;
+  padding: gap(3) $large-padding gap(3) $large-padding;
+}
+
+@mixin flexbox() {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: $small-margin;
+  padding: $large-padding;
+}

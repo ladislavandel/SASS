@@ -1,0 +1,71 @@
+// COLORS
+
+$primary: #e3e6f3;
+$secondary: #088178;
+$error: #ff0000;
+$info: #4c94ff;
+$btn: #4d84fc;
+$yellow: yellow;
+$blue: blue;
+$red: red;
+$green: green;
+$orange: orange;
+$purple: purple;
+$white: white;
+$gray: gray;
+$black: black;
+$pink: pink;
+$brown: brown;
+
+$colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "info": $info,
+  "btn": $btn,
+  "yellow": yellow,
+  "blue": blue,
+  "red": red,
+  "green": green,
+  "orange": orange,
+  "purple": purple,
+  "white": white,
+  "gray": gray,
+  "black": black,
+  "pink": pink,
+  "brown": brown,
+);
+
+@each $key, $val in $colors {
+  .color-#{$key} {
+    color: $val;
+  }
+
+  @for $i from 1 through 10 {
+    .color-#{$key}-light-#{$i} {
+      color: mix(white, $val, $i * 10%);
+    }
+  }
+
+  @for $i from 1 through 10 {
+    .color-#{$key}-dark-#{$i} {
+      color: mix(black, $val, $i * 10%);
+    }
+  }
+}
+
+@each $key, $val in $colors {
+  .bg-color-#{$key} {
+    background-color: $val;
+  }
+
+  @for $i from 1 through 10 {
+    .bg-color-#{$key}-light-#{$i} {
+      background-color: mix(white, $val, $i * 10%);
+    }
+  }
+  @for $i from 1 through 10 {
+    .bg-color-#{$key}-dark-#{$i} {
+      color: mix(black, $val, $i * 10%);
+    }
+  }
+}

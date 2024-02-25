@@ -1,0 +1,11 @@
+@function gap($scale) {
+  @return 1rem * $scale;
+}
+
+@function lighten($color, $number) {
+  @return mix(white, $color, $number);
+}
+
+@function darken($color, $number) {
+  @return mix(black, $color, $number);
+}
